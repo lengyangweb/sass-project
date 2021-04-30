@@ -1,0 +1,41 @@
+@media(max-width: 700px) {
+    .navigation {
+
+        .list-group {
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+            padding-right: 15px;
+            cursor: pointer;
+
+            i {
+                font-size: 1.8rem;
+                color: $font-color;
+            }
+        }
+    }
+
+    .container {
+        
+        justify-content: center;
+        align-items: center;
+
+        .section-1 {
+            width: 80vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            h1 {
+                margin-bottom: 1rem;
+            }
+
+            p {
+                max-width: 80vw;
+            }
+        }
+    }
+}
