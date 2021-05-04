@@ -5,6 +5,63 @@
             display: none;
         }
 
+        .smallNav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -100;
+            width: 200px;
+            background: rgba(20, 20, 20, .7);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: slideDown .3s ease-in;
+            overflow-x: hidden;
+
+            li {
+                list-style: none;
+                padding: 2rem;
+
+                a {
+                    color: $font-color;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    cursor: pointer;
+                    transition: .1s ease-in;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+
+            .slide-up {
+                animation: slideUp .3s ease-in;
+                display: none;
+            }
+
+            @keyframes slideDown {
+                from {
+                    transform: translateX(150px);
+                }
+                to {
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes slideUp {
+                from {
+                    transform: translateY(0);
+                }
+                to {
+                    transform: translateY(100%);
+                }
+            }
+        }
+
         .hamburger {
             display: flex;
             padding-right: 15px;

@@ -2,7 +2,7 @@ const navigation = document.querySelector('.navigation');
 const listGroup = document.querySelector('.list-group');
 const hamburger = document.querySelector('.hamburger');
 
-function smallNavigation() {
+function generateSmallNav() {
     let smallNav = document.createElement('ul');
     smallNav.className = "smallNav";
 
@@ -21,15 +21,29 @@ function smallNavigation() {
         </li>
     `;
 
+    return smallNav;
+};
+
+function smallNavigation() {
+    changeClass();
+    const smallNav = generateSmallNav();
     
+    if(window.innerWidth <= 700) {
+        if(!navigation.querySelector('.smallNav')) {
+            navigation.insertBefore(smallNav, hamburger);
+        } else {
+            smallNav.className += "slide-up";
+            navigation.children[2].remove();
+        }
+    }
 }
 
 function changeClass() {
     if(hamburger.firstElementChild.classList.contains('fa-bars')) {
-        return hamburger.firstElementChild.className = "fas fa-times";
+        return  hamburger.firstElementChild.className = "fas fa-times";
     } else {
-        return hamburger.firstElementChild.classList = "fas fa-bars";
+        return hamburger.firstElementChild.className = "fas fa-bars";
     }
 }
 
-hamburger.addEventListener("click", changeClass);
+hamburger.addEventListener("click", smallNavigation);
